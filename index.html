@@ -36,37 +36,27 @@
 		<div id="map"></div>
 		<div id="credits">
 			<p>COVID-19 Dashboard for analysis on where to prioritize mass testing</p>
-			<p>Heres</p>
+			<p><a href="https://public.tableau.com/views/COVID-19PHDashboard-Analysis/Dashboard?:retry=yes&:display_count=y&:origin=viz_share_link">here</a></p>
 		</div>
 	</div>
 	<div id="dialog" title="Evacuation Center Details">
 		<form>
 			<fieldset style="border: none;">
 				<ul style="list-style-type: none; padding-left: 0px">
-					<li><label for="fname">Name</label></li>
-					<li><input id="fname" name="fname" placeholder="Name of Evacuation Center" size="40" type="text" required></li>
-					<li><label for="alt">Alternate Name</label></li>
-					<li><input id="alt" name="alt" placeholder="Alternate Name" size="40" type="text" required></li>					
-					<li><label for="region">Region</label></li>
-					<li><input id="region" name="region" placeholder="Region" size="40" type="text" required></li>
-					<li><label for="prov">Province</label></li>
-					<li><input id="prov" name="prov" placeholder="Province" size="40" type="text" required></li>										
-					<li><label for="muni">Municipality</label></li>
-					<li><input id="muni" name="muni" placeholder="Municipality" size="40" type="text"></li>
-					<li><label for="brgy">Barangay</label></li>
-					<li><input id="brgy" name="brgy" placeholder="Barangay" size="40" type="text" required></li>
-					<li><label for="type">Type</label></li>
-					<li><input id="type" name="type" placeholder="School, Brgy Hall, etc." size="40" type="text"></li>
-					<li><label for="approxnum">No. of Internally Displaced People (IDP)</label></li>
-					<li><textarea cols="40" id="approxnum" name="approxnum" placeholder="Approximate number of evacuees as of (pls input date)" rows="2"></textarea></li>
-					
-					<li><label for="campoic">Camp OIC and contact number</label></li>
-					<li><textarea cols="40" id="campoic" name="campoic" placeholder="Camp Manager or Camp Officer-in-Charge" rows="2"></textarea></li>					
-					
-					<li><label for="needs">Needs</label></li>
-					<li><textarea cols="40" id="needs" name="needs" placeholder="IDPs' Needs / To prioritize for this EC" rows="5"></textarea></li>					
-					<li><label for="researcher">Researcher</label></li>
-					<li><textarea cols="40" id="researcher" name="researcher" placeholder="Researcher or other additional notes" rows="5"></textarea></li>
+					<li><label for="fname">Name ng Store o Sinong Hahanapin?</label></li>
+					<li><input id="fname" name="fname" placeholder="name of store or sinong hahanapin?" size="40" type="text" required></li>
+					<li><label for="product">Product</label></li>
+					<li><input id="product" name="product" placeholder="Anong dinedeliver?" size="40" type="text" required></li>					
+					<li><label for="price">Magkano?</label></li>
+					<li><input id="price" name="price" placeholder="Magkano po ito?" size="40" type="text" required></li>
+					<li><label for="prov">Contact Number</label></li>
+					<li><input id="contact" name="contact" placeholder="Contact Number" size="40" type="text" required></li>										
+					<li><label for="address">Complete Address</label></li>
+					<li><textarea cols="40" id="approxnum" name="address" placeholder="Gusto po natin makatulong, sa sana po legit pls." rows="2"></textarea></li>			
+					<li><label for="sched">Day and Time ng Delivery</label></li>
+					<li><textarea cols="40" id="sched" name="sched" placeholder="Tuwing kailan at anong oras po pwede magpadeliver?" rows="5"></textarea></li>					
+					<li><label for="more">More information or Note to customers</label></li>
+					<li><textarea cols="40" id="more" name="more" placeholder="Important information bago umorder o pagkatapos" rows="5"></textarea></li>
 				</ul><input style="position:absolute; top:-1000px" tabindex="-1" type="submit">
 			</fieldset>
 		</form>
@@ -90,7 +80,7 @@
 	          var config = { //TODO: Change to your username, insert function on Carto, and Carto tablename
 	              cartoUsername: "anditabinas",
 	              cartoInsertFunction : "insert_crowd_mapping_data",
-	              cartoTablename: "taal",
+	              cartoTablename: "saanmaydelivery",
 	              mapcenter: [13.85985, 120.732644],
 	              drawOptions: {
 	                  draw: {
