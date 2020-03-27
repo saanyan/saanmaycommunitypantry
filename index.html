@@ -49,7 +49,7 @@
 					<li><input id="product" name="product" placeholder="Anong dinedeliver?" size="40" type="text" required></li>					
 					<li><label for="price">Magkano?</label></li>
 					<li><input id="price" name="price" placeholder="Magkano po ito?" size="40" type="text" required></li>
-					<li><label for="prov">Contact Number</label></li>
+					<li><label for="contact">Contact Number</label></li>
 					<li><input id="contact" name="contact" placeholder="Contact Number" size="40" type="text" required></li>										
 					<li><label for="address">Complete Address</label></li>
 					<li><textarea cols="40" id="approxnum" name="address" placeholder="Gusto po natin makatulong, sa sana po legit pls." rows="2"></textarea></li>			
@@ -123,7 +123,7 @@
 	              $.getJSON(getData, function (data) {
 	                  cartoData = L.geoJson(data, {
 	                      onEachFeature: function (feature, layer) {
-	                          layer.bindPopup('<b>Name: <\/b>' + feature.properties.name + '<br>' + '<b>Alternate Name: <\/b>' + feature.properties.alt + '<br>' + '<b>Region: <\/b>' + feature.properties.region + '<br>' + '<b>Province: <\/b>' + feature.properties.prov + '<br>' + '<b>Municipality: <\/b>' + feature.properties.muni + '<br>' + '<b>Barangay: <\/b>' + feature.properties.brgy + '<br>' + '<b>Type: <\/b>' + feature.properties.type + '<br>' + '<b>Specific/Priority Needs of IDPs in the EC: <\/b>' + feature.properties.needs + '<br>' + '<b>Approx. no. of Internally Displaced People (IDPs): <\/b>' + feature.properties.approxnum + '<br>' + '<b>Camp Manager/OIC: <\/b>' + feature.properties.campoic + '<br>' + '<b>Researcher: <\/b>' + feature.properties.researcher + '');
+	                          layer.bindPopup('<b>Name: <\/b>' + feature.properties.name + '<br>' + '<b>Product: <\/b>' + feature.properties.product + '<br>' + '<b>Price: <\/b>' + feature.properties.price + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.contact + '<br>' + '<b>Complete Address: <\/b>' + feature.properties.address + '<br>' + '<b>Day/Time We Accept Orders for Delivery: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
 	                      }           
 	                  }).addTo(map);
 	              });
@@ -182,33 +182,25 @@
 	          });
 	          function setData() {
 	              var enteredFname = "'" + JSON.stringify(fname.value.replace("'", "''")) + "'"
-	              var enteredRegion = "'" + JSON.stringify(region.value.replace("'", "''")) + "'"	
-	              var enteredAlt = "'" + JSON.stringify(alt.value.replace("'", "''")) + "'"			      
-	              var enteredProv = "'" + JSON.stringify(prov.value.replace("'", "''")) + "'"	
-	              var enteredMuni = "'" + JSON.stringify(muni.value.replace("'", "''")) + "'"	
-	              var enteredBrgy = "'" + JSON.stringify(brgy.value.replace("'", "''")) + "'"			  
-	              var enteredType = "'" + JSON.stringify(type.value.replace("'", "''")) + "'"		
-	              var enteredApproxnum = "'" + JSON.stringify(approxnum.value.replace("'", "''")) + "'"
-	              var enteredCampoic = "'" + JSON.stringify(campoic.value.replace("'", "''")) + "'"	     
-	              var enteredNeeds = "'" + JSON.stringify(needs.value.replace("'", "''")) + "'"		      
-	              var enteredResearcher = "'" + JSON.stringify(researcher.value.replace("'", "''")) + "'";
+	              var enteredProduct = "'" + JSON.stringify(product.value.replace("'", "''")) + "'"	
+	              var enteredPrice = "'" + JSON.stringify(price.value.replace("'", "''")) + "'"			      
+	              var enteredContact = "'" + JSON.stringify(contact.value.replace("'", "''")) + "'"	
+	              var enteredAddress = "'" + JSON.stringify(address.value.replace("'", "''")) + "'"	
+	              var enteredSched = "'" + JSON.stringify(sched.value.replace("'", "''")) + "'"			  
+	              var enteredMore = "'" + JSON.stringify(more.value.replace("'", "''")) + "'";
 				  
 			  
 	              drawnItems.eachLayer(function (layer) {
 	                  var drawing = "'" + JSON.stringify(layer.toGeoJSON().geometry) + "'",   //Converts the drawing to a GeoJSON
 	                      sql = "SELECT " + config.cartoInsertFunction + "("; //Constructs the SQL Query from the entered parameters on the dialog/form
 	                  sql += drawing;
-	                  sql += "," + enteredRegion;
 	                  sql += "," + enteredFname;
-	                  sql += "," + enteredAlt;
-	                  sql += "," + enteredProv;
-	                  sql += "," + enteredMuni;			      
-	                  sql += "," + enteredBrgy;
-	                  sql += "," + enteredType;
-	                  sql += "," + enteredApproxnum;
-	                  sql += "," + enteredCampoic;			      
-	                  sql += "," + enteredNeeds;			      
-	                  sql += "," + enteredResearcher;              
+	                  sql += "," + enteredProduct;
+	                  sql += "," + enteredPrice;
+	                  sql += "," + enteredContact;			      
+	                  sql += "," + enteredAddress;
+	                  sql += "," + enteredSched;
+	                  sql += "," + enteredMore;            
 	                  sql += ");";
 	                  console.log(drawing);
 	                  
@@ -226,17 +218,13 @@
 	                      }
 	                  });
 	                  var newData = layer.toGeoJSON();
-	                    newData.properties.region = region.value;
 	                    newData.properties.name = fname.value;
-	                    newData.properties.alt = alt.value;
-	                    newData.properties.prov = prov.value;
-	                    newData.properties.muni = muni.value;			      
-	                    newData.properties.brgy = brgy.value;
-	                    newData.properties.type = type.value;
-	                    newData.properties.approxnum = approxnum.value;
-	                    newData.properties.campoic = campoic.value;			      
-	                    newData.properties.needs = needs.value;			      
-	                    newData.properties.researcher = researcher.value;                   
+	                    newData.properties.alt = product.value;
+	                    newData.properties.prov = price.value;
+	                    newData.properties.muni = contact.value;			      
+	                    newData.properties.brgy = address.value;
+	                    newData.properties.type = sched.value;
+	                    newData.properties.approxnum = more.value;             
 	                  cartoData.addData(newData);
 	              });
 	              
