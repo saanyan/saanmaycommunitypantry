@@ -123,7 +123,7 @@
 	              $.getJSON(getData, function (data) {
 	                  cartoData = L.geoJson(data, {
 	                      onEachFeature: function (feature, layer) {
-	                          layer.bindPopup('<b>Name: <\/b>' + feature.properties.name + '<br>' + '<b>Product: <\/b>' + feature.properties.product + '<br>' + '<b>Price: <\/b>' + feature.properties.price + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.contact + '<br>' + '<b>Complete Address: <\/b>' + feature.properties.address + '<br>' + '<b>Day/Time We Accept Orders for Delivery: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
+	                          layer.bindPopup('<b>Name: <\/b>' + feature.properties.name + '<br>' + '<b>Product: <\/b>' + feature.properties.product + '<br>' + '<b>Price: <\/b>' + feature.properties.price + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.contact + '<br>' + '<b>Complete Address: <\/b>' + feature.properties.address + '<br>' + '<b>Day and Time We Accept Orders for Delivery: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
 	                      }           
 	                  }).addTo(map);
 	              });
@@ -219,12 +219,12 @@
 	                  });
 	                  var newData = layer.toGeoJSON();
 	                    newData.properties.name = fname.value;
-	                    newData.properties.alt = product.value;
-	                    newData.properties.prov = price.value;
-	                    newData.properties.muni = contact.value;			      
-	                    newData.properties.brgy = address.value;
-	                    newData.properties.type = sched.value;
-	                    newData.properties.approxnum = more.value;             
+	                    newData.properties.product = product.value;
+	                    newData.properties.price = price.value;
+	                    newData.properties.contact = contact.value;			      
+	                    newData.properties.address = address.value;
+	                    newData.properties.sched = sched.value;
+	                    newData.properties.more = more.value;             
 	                  cartoData.addData(newData);
 	              });
 	              
