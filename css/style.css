@@ -24,7 +24,7 @@ p {
 h1 {
   line-height: 25px;
   margin-top: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   margin-left: 10px;
   color: #202424;
   font-size: 40px;
@@ -38,20 +38,18 @@ h2 {
   margin-left: 10px;
   margin-right: 10px;  
   font-size: 12px;
-  color: #2badab;
+  color: #5a5a5a;
   font-weight: lighter;
 }
 
-
 label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
 }  
 
 #dialog {
   font-size: 11px;
 }
-
 
 #wrapper {
   width: 100%;
