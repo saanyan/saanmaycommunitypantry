@@ -52,7 +52,7 @@
 					<li><label for="contact">Contact Number</label></li>
 					<li><input id="contact" name="contact" placeholder="Contact Number" size="40" type="text" required></li>										
 					<li><label for="address">Complete Address</label></li>
-					<li><textarea cols="40" id="approxnum" name="address" placeholder="Gusto po natin makatulong, sa sana po legit pls." rows="2"></textarea></li>			
+					<li><textarea cols="40" id="address" name="address" placeholder="Gusto po natin makatulong, sa sana po legit pls." rows="2"></textarea></li>			
 					<li><label for="sched">Day and Time ng Delivery</label></li>
 					<li><textarea cols="40" id="sched" name="sched" placeholder="Tuwing kailan at anong oras po pwede magpadeliver?" rows="5"></textarea></li>					
 					<li><label for="more">More information or Note to customers</label></li>
@@ -97,7 +97,7 @@
 	          };         
 	          
 	          var cartoData = null; //These adds data from Carto using the SQL API, declares variables, and writes the SQL selection query
-	          var sqlQuery = "SELECT the_geom, region, name, alt, prov, muni, brgy, type, approxnum, campoic, needs, researcher FROM " + config.cartoTablename;
+	          var sqlQuery = "SELECT the_geom, name, product, price, contact, address, sched, more FROM " + config.cartoTablename;
 	          var map = L.map('map', { center: config.mapcenter, zoom: 10});   // Creates the Leaflet map object
 	          map.addControl(new L.Control.Fullscreen());
 		
