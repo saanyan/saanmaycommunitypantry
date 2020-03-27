@@ -22,7 +22,7 @@ p {
 }
 
 h1 {
-  line-height: 30px;
+  line-height: 25px;
   margin-top: 15px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -90,6 +90,6 @@ label {
 #credits p {
   margin-top: 7px;
   font-size: 8px;
-  text-align: right;
+  text-align: center;
   line-height: 4px;
 }
