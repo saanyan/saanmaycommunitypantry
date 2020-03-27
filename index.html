@@ -97,7 +97,7 @@
 	          
 	          var cartoData = null; //These adds data from Carto using the SQL API, declares variables, and writes the SQL selection query
 	          var sqlQuery = "SELECT the_geom, name, product, price, contact, address, sched, more FROM " + config.cartoTablename;
-	          var map = L.map('map', { center: config.mapcenter, zoom: 7});   // Creates the Leaflet map object
+	          var map = L.map('map', { center: config.mapcenter, zoom: 5});   // Creates the Leaflet map object
 	          map.addControl(new L.Control.Fullscreen());
 		
 				  
