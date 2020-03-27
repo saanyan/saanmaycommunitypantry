@@ -1,4 +1,4 @@
-@import url(//fonts.googleapis.com/css?family=Mallanna);
+@import url('https://fonts.googleapis.com/css?family=Neucha|Roboto&display=swap');
 
 html {
   height: 100%;
@@ -6,7 +6,8 @@ html {
 
 body {
   margin: 0px;
-  font-family: 'Open Sans', Mallanna, sans-serif;
+  font-family: 'Neucha', cursive;
+  font-family: 'Roboto', sans-serif;
 }
 
 img {
@@ -21,23 +22,23 @@ p {
 }
 
 h1 {
-  line-height: 35px;
+  line-height: 30px;
   margin-top: 15px;
   margin-bottom: 10px;
   margin-left: 10px;
-  color: #3173D8;
+  color: #1ab8aa;
   font-size: 40px;
   font-weight: lighter;
 }
 
 h2 {
-  line-height: 25px;
+  line-height: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;  
   font-size: 15px;
-  color: #3086B5;
+  color: #e6d49a;
   font-weight: lighter;
 }
 
@@ -48,13 +49,13 @@ label {
 }  
 
 #dialog {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 
 #wrapper {
   width: 100%;
-  font-family: 'Open Sans', Mallanna, sans-serif;    
+  font-family: 'Roboto', sans-serif;  
 }
 
 #map {
@@ -67,14 +68,14 @@ label {
   width: 100%;
   margin-left: 10px;
   margin-bottom: 10px;
-  font-family: 'Open Sans', Mallanna, sans-serif;  
-  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
   float: left;
 }
 
 #form {
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 9px;
   text-align: left;
   line-height: 12px;
   width:400px;
@@ -88,7 +89,7 @@ label {
 
 #credits p {
   margin-top: 7px;
-  font-size: 10px;
+  font-size: 8px;
   text-align: right;
   line-height: 4px;
 }
