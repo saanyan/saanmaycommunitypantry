@@ -123,7 +123,7 @@
 	              $.getJSON(getData, function (data) {
 	                  cartoData = L.geoJson(data, {
 	                      onEachFeature: function (feature, layer) {
-	                          layer.bindPopup('<b>Name: <\/b>' + feature.properties.name + '<br>' + '<b>Product: <\/b>' + feature.properties.product + '<br>' + '<b>Price: <\/b>' + feature.properties.price + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.contact + '<br>' + '<b>Complete Address: <\/b>' + feature.properties.address + '<br>' + '<b>Day and Time We Accept Orders for Delivery: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
+	                          layer.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.product + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.price + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.contact + '<br>' + '<b>Complete Address: <\/b>' + feature.properties.address + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
 	                      }           
 	                  }).addTo(map);
 	              });
