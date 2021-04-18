@@ -26,36 +26,36 @@
 	<body oncontextmenu="return false">
 	<div id="wrapper">
 		<div id="header">
-			<h1>Pst. Saan may nagdedeliver?</h1>
-		        <h2>Pins = nagdedeliver ng kung anek-anek. Padagdag ng information kung may alam ka pang iba, para malaman din ng iba kung anong malapit sakanilang nagdedeliver ng pang-araw-araw na pangangailangan ngayong kailangan mag-#StayAtHome. Hanapin lang ang location ng store na alam mong nag-aaccept ng deliveries (mag-Zoom in sa mapa, o gamitin ang search tool sa kaliwa), o kung nasa mismong tindahan ka, click mo lang yung kamay na naka-turo pababa na nasa bandang kaliwa ng mapa. Pag ready ka na magdagdag ng impormasyon, i-click lang ang "Dito may nagdedeliver." Shelemet! </h2>	 	
+			<h1>Pst. Saan may Community Pantry? MAGBIGAY AYON SA KAKAYAHAN, KUMUHA BATAY SA PANGANGAILANGAN.</h1>
+		        <h2>Pins = Community Pantries! ♥️ Mula sa pagiging "Saan May Nagdedeliver", ipinalit dito ang "Saan may Community Pantry?" Kung may alam kang community pantries, maaring pakidagdag dito upang malaman din ng iba kung saan mayroong malapit na community mutual aid. PAANO GAMITIN ANG MAPA? Hanapin lamang ang location ng community pantry; (mag-Zoom in sa mapa, o gamitin ang search tool sa kaliwa), o kung nasa mismong lokasyon ka, i-click mo lang ang kamay na naka-turo pababa na nasa bandang kaliwa ng mapa. Kapag handa nang magdagdag ng impormasyon, i-click lang ang "Dito mayroong community pantry." Salamat! </h2>	 	
 		</div>
 		<div id="controls">
-			<input onclick="startEdits()" type="button" value="Dito may nagdedeliver."> <input onclick="stopEdits()" type="button" value="Yehey!"><br>
+			<input onclick="startEdits()" type="button" value="Dito may community pantry."> <input onclick="stopEdits()" type="button" value="Yehey!"><br>
 			
 		</div>
 		<div id="map"></div>
 		<div id="credits">
-			<p>COVID-19 Dashboard: where to prioritize mass testing? <a href="https://public.tableau.com/views/COVID-19PHDashboard-Analysis/Dashboard?:display_count=no&:showVizHome=no">link</a></p>
+			<p>Mental Health AWHEREness <a href="https://mentalhealthawhereness.com">link</a></p>
 		</div>
 	</div>
-	<div id="dialog" title="Dito may nagdedeliver:">
+	<div id="dialog" title="Dito may community pantry:">
 		<form>
 			<fieldset style="border: none;">
 				<ul style="list-style-type: none; padding-left: 0px">
-					<li><label for="fname">Name ng Store o Sinong Hahanapin?</label></li>
-					<li><input id="fname" name="fname" placeholder="name of store or sinong hahanapin?" size="40" type="text" required></li>
-					<li><label for="product">Product</label></li>
-					<li><input id="product" name="product" placeholder="Anong dinedeliver?" size="40" type="text" required></li>					
-					<li><label for="price">Magkano?</label></li>
-					<li><input id="price" name="price" placeholder="Magkano po ito?" size="40" type="text" required></li>
+					<li><label for="fname">Pangalan ng Community Pantry (Eg. MAGINHAWA COMMUNITY PANTRY)</label></li>
+					<li><input id="fname" name="fname" placeholder="Pangalan ng Community Pantry" size="40" type="text" required></li>
+					<li><label for="product">Mga nasa pantry</label></li>
+					<li><input id="product" name="product" placeholder="Anong maaaring ibigay/kunin?" size="40" type="text" required></li>					
+					<li><label for="price">Contact Person</label></li>
+					<li><input id="price" name="price" placeholder="Community Pantry Contact Person" size="40" type="text" required></li>
 					<li><label for="contact">Contact Number</label></li>
 					<li><input id="contact" name="contact" placeholder="Contact Number" size="40" type="text" required></li>										
 					<li><label for="address">Complete Address</label></li>
-					<li><textarea cols="40" id="address" name="address" placeholder="Gusto po natin makatulong, sa sana po legit pls." rows="2"></textarea></li>			
-					<li><label for="sched">Day and Time ng Delivery</label></li>
-					<li><textarea cols="40" id="sched" name="sched" placeholder="Tuwing kailan at anong oras po pwede magpadeliver?" rows="5"></textarea></li>					
-					<li><label for="more">More information or Note to customers</label></li>
-					<li><textarea cols="40" id="more" name="more" placeholder="Important information bago umorder o pagkatapos" rows="5"></textarea></li>
+					<li><textarea cols="40" id="address" name="address" placeholder="Gusto po natin makatulong, kaya't maaari lang pong ilagay ang tamang impormasyon" rows="2"></textarea></li>			
+					<li><label for="sched">Opening Hours</label></li>
+					<li><textarea cols="40" id="sched" name="sched" placeholder="Tuwing kailan at anong oras po bukas ang Community Pantry?" rows="5"></textarea></li>					
+					<li><label for="more">More information or Note to the community</label></li>
+					<li><textarea cols="40" id="more" name="more" placeholder="Iba pang importanteng impormasyon para sa komunidad" rows="5"></textarea></li>
 				</ul><input style="position:absolute; top:-1000px" tabindex="-1" type="submit">
 			</fieldset>
 		</form>
