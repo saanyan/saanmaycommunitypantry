@@ -59,7 +59,7 @@ label {
 #map {
   width: 100%;
   margin: 0 auto;
-  height: 730px;
+  height: 100%;
 }
 
 #controls {
