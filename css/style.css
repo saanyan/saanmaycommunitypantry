@@ -55,7 +55,6 @@ label {
 
 #wrapper {
   width: 100%;
-  height: 100%;  
   font-family: 'Roboto', sans-serif;  
 }
 
@@ -71,6 +70,7 @@ label {
   margin-bottom: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
+  text-align: center;   
   float: left;
 }
 
