@@ -1,2 +1,2 @@
 # Saan yan?
-Saan may nagdedeliver?
+Saan may community pantries?
