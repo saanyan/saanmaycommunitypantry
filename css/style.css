@@ -88,7 +88,8 @@ label {
 }
 
 #credits p {
-  margin-top: 5px;
+  margin-top: 7px;
+  color: #16a8a3;  
   font-size: 11px;
   text-align: center;
   line-height: 5px;
