@@ -58,9 +58,9 @@ label {
 }
 
 #map {
-  position: absolute;
   width: 100%;
   margin: 0 auto;
+  height: 750px;
 }
 
 .mapbox-attribution-container {
