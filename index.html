@@ -108,9 +108,6 @@
 	              maxZoom: 20 //Adds the tilelayer basemap; I used my mapbox style here.
 	          }); 
 	          Mapbox.addTo(map);
-
-	          var credits = L.control.attribution().addTo(map);
-	              credits.addAttribution('© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>');
 	          
 	          var osmGeocoder = new L.Control.OSMGeocoder({position: 'topleft'}); //Adds Search toolbar; OSMGeocoder       
 	          map.addControl(osmGeocoder);
