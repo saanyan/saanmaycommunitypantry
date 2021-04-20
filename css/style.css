@@ -60,7 +60,7 @@ label {
 #map {
   width: 100%;
   margin: 0 auto;
-  height: 770px;
+  height: 750px;
 }
 
 #controls {
@@ -89,6 +89,9 @@ label {
 
 #credits p {
   margin-top: 7px;
+  margin-bottom: 7px; 
+  margin-right: 3px;   
+  margin-left: 3px;      
   color: #16a8a3;  
   font-size: 10px;
   text-align: center;
