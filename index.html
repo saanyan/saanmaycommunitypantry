@@ -15,6 +15,9 @@
 	<link href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.css" rel="stylesheet">
 	<link href="https://rawgit.com/mapshakers/leaflet-control-window/master/src/L.Control.Window.css" rel="stylesheet">
 	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
 <!--	<link href='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.css' rel='stylesheet' /> -->	
 <!--	<link rel="stylesheet" href="https://github.com/anditabinas/evacuationcenters/blob/master/css/MarkerCluster.css" /> -->
 <!--	<link rel="stylesheet" href="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-easy-button.css" /> -->
@@ -82,6 +85,10 @@
 	<script src="https://gme210soundmap.github.io/Manilaud/Leaflet.LocationShare.js"></script>		
 <!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
 	<script type="text/javascript" src="dist/leaflet-control-credits.js"></script>
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+  crossorigin=""></script>
+	<script src="PruneCluster/dist/PruneCluster.js"></script>
 	
 	<script>
 	          var config = { //TODO: Change to your username, insert function on Carto, and Carto tablename
@@ -136,6 +143,8 @@
 	              });
 	          }
 	          getGeoJSON();
+		
+		var pruneCluster = new PruneClusterForLeaflet();
 	          var drawnItems = new L.FeatureGroup();
 	          var drawControl = new L.Control.Draw(config.drawOptions);
 	          var controlOnMap = false;
@@ -242,6 +251,7 @@
 	              map.removeLayer(drawnItems);
 	              drawnItems = new L.FeatureGroup();
 	          }
+		map.addLayer(pruneCluster);
 	          
 	          
 	          
