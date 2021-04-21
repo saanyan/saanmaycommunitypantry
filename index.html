@@ -85,10 +85,6 @@
 	<script src="https://gme210soundmap.github.io/Manilaud/Leaflet.LocationShare.js"></script>		
 <!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
 	<script type="text/javascript" src="dist/leaflet-control-credits.js"></script>
-	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-  crossorigin=""></script>
-	<script src="PruneCluster/dist/PruneCluster.js"></script>
 	
 	<script>
 	          var config = { //TODO: Change to your username, insert function on Carto, and Carto tablename
@@ -143,8 +139,6 @@
 	              });
 	          }
 	          getGeoJSON();
-		
-		var pruneCluster = new PruneClusterForLeaflet();
 	          var drawnItems = new L.FeatureGroup();
 	          var drawControl = new L.Control.Draw(config.drawOptions);
 	          var controlOnMap = false;
@@ -251,7 +245,6 @@
 	              map.removeLayer(drawnItems);
 	              drawnItems = new L.FeatureGroup();
 	          }
-		map.addLayer(pruneCluster);
 	          
 	          
 	          
