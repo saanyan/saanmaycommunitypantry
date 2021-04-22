@@ -51,16 +51,24 @@
 				<ul style="list-style-type: none; padding-left: 0px">
 					<li><label for="fname">Pangalan ng Community Pantry (Eg. MAGINHAWA COMMUNITY PANTRY)</label></li>
 					<li><input id="fname" name="fname" placeholder="Pangalan ng Community Pantry" size="40" type="text" required></li>
-					<li><label for="product">Mga nasa pantry</label></li>
-					<li><textarea cols="40" id="product" name="product" placeholder="Anong maaaring ibigay/kunin?" rows="5"></textarea></li>
-					<li><label for="price">Contact Person</label></li>
-					<li><input id="price" name="price" placeholder="Community Pantry Contact Person" size="40" type="text" required></li>
-					<li><label for="contact">Contact Number</label></li>
-					<li><input id="contact" name="contact" placeholder="Contact Number" size="40" type="text" required></li>										
-					<li><label for="address">Complete Address</label></li>
-					<li><textarea cols="40" id="address" name="address" placeholder="Gusto po natin makatulong, kaya't maaari lang pong ilagay ang tamang impormasyon" rows="2"></textarea></li>			
+					<li><label for="supplies">Mga nasa pantry</label></li>
+					<li><textarea cols="40" id="supplies" name="product" placeholder="Anong maaaring ibigay/kunin?" rows="5"></textarea></li>
+					<li><label for="contact">Contact Person</label></li>
+					<li><input id="contact" name="price" placeholder="Community Pantry Contact Person" size="40" type="text" required></li>
+					<li><label for="number">Contact Number</label></li>
+					<li><input id="number" name="number" placeholder="Contact Number" size="40" type="text" required></li>			
+					<li><label for="street_address">Street Address</label></li>
+					<li><textarea cols="40" id="street_address" name="street_address" placeholder="Gusto po natin makatulong, kaya't maaari lang pong ilagay ang tamang impormasyon" rows="2"></textarea></li>
+					<li><label for="barangay">Barangay</label></li>
+					<li><input id="barangay" name="barangay" placeholder="Barangay" size="40" type="text" required></li>
+					<li><label for="municipality_city">Municipality or City</label></li>
+					<li><input id="municipality_city" name="municipality_city" placeholder="Municipality/City" size="40" type="text" required></li>	
+					<li><label for="province">Province</label></li>
+					<li><input id="province" name="province" placeholder="Province" size="40" type="text" required></li>
+					<li><label for="region">Region</label></li>
+					<li><input id="region" name="region" placeholder="Region" size="40" type="text" required></li>			
 					<li><label for="sched">Opening Hours</label></li>
-					<li><textarea cols="40" id="sched" name="sched" placeholder="Tuwing kailan at anong oras po bukas ang Community Pantry?" rows="5"></textarea></li>					
+					<li><textarea cols="10" id="sched" name="sched" placeholder="Tuwing kailan at anong oras po bukas ang Community Pantry?" rows="5"></textarea></li>					
 					<li><label for="more">More information or Note to the community</label></li>
 					<li><textarea cols="40" id="more" name="more" placeholder="Iba pang importanteng impormasyon para sa komunidad" rows="5"></textarea></li>
 				</ul><input style="position:absolute; top:-1000px" tabindex="-1" type="submit">
@@ -104,7 +112,7 @@
 	          };         
 	          
 	          var cartoData = null; //These adds data from Carto using the SQL API, declares variables, and writes the SQL selection query
-	          var sqlQuery = "SELECT the_geom, name, product, price, contact, address, sched, more FROM " + config.cartoTablename;
+	          var sqlQuery = "SELECT the_geom, name, supplies, contact, number, street_address, barangay, municipality_city, province, region, sched, more FROM " + config.cartoTablename;
 	          var map = L.map('map', { center: config.mapcenter, zoom: 6});   // Creates the Leaflet map object
 	          map.addControl(new L.Control.Fullscreen());
 		
@@ -130,7 +138,7 @@
 	              $.getJSON(getData, function (data) {
 	                  cartoData = L.geoJson(data, {
 	                      onEachFeature: function (feature, layer) {
-	                          layer.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.product + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.price + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.contact + '<br>' + '<b>Complete Address: <\/b>' + feature.properties.address + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
+	                          layer.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.supplies + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.contact + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.number + '<br>' + '<b>Street Address: <\/b>' + feature.properties.street_address + '<br>' + '<b>Barangay: <\/b>' + feature.properties.barangay + '<br>' + '<b>Municipality/City: <\/b>' + feature.properties.municipality_city + '<br>' + '<b>Province: <\/b>' + feature.properties.province + '<br>' + '<b>Region: <\/b>' + feature.properties.region + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
 	                      }           
 	                  }).addTo(map);
 	              });
@@ -189,10 +197,14 @@
 	          });
 	          function setData() {
 	              var enteredFname = "'" + JSON.stringify(fname.value.replace("'", "''")) + "'"
-	              var enteredProduct = "'" + JSON.stringify(product.value.replace("'", "''")) + "'"	
-	              var enteredPrice = "'" + JSON.stringify(price.value.replace("'", "''")) + "'"			      
-	              var enteredContact = "'" + JSON.stringify(contact.value.replace("'", "''")) + "'"	
-	              var enteredAddress = "'" + JSON.stringify(address.value.replace("'", "''")) + "'"	
+	              var enteredSupplies = "'" + JSON.stringify(supplies.value.replace("'", "''")) + "'"	
+	              var enteredContact = "'" + JSON.stringify(contact.value.replace("'", "''")) + "'"			      
+	              var enteredNumber = "'" + JSON.stringify(number.value.replace("'", "''")) + "'"	
+	              var enteredStreet_address = "'" + JSON.stringify(street_address.value.replace("'", "''")) + "'"	
+	              var enteredBarangay = "'" + JSON.stringify(barangay.value.replace("'", "''")) + "'"	
+	              var enteredMunicipality_city = "'" + JSON.stringify(municipality_city.value.replace("'", "''")) + "'"	
+	              var enteredProvince = "'" + JSON.stringify(province.value.replace("'", "''")) + "'"
+	              var enteredRegion = "'" + JSON.stringify(region.value.replace("'", "''")) + "'"			      
 	              var enteredSched = "'" + JSON.stringify(sched.value.replace("'", "''")) + "'"			  
 	              var enteredMore = "'" + JSON.stringify(more.value.replace("'", "''")) + "'";
 				  
@@ -202,10 +214,14 @@
 	                      sql = "SELECT " + config.cartoInsertFunction + "("; //Constructs the SQL Query from the entered parameters on the dialog/form
 	                  sql += drawing;
 	                  sql += "," + enteredFname;
-	                  sql += "," + enteredProduct;
-	                  sql += "," + enteredPrice;
-	                  sql += "," + enteredContact;			      
-	                  sql += "," + enteredAddress;
+	                  sql += "," + enteredSupplies;
+	                  sql += "," + enteredContact;
+	                  sql += "," + enteredNumber;			      
+	                  sql += "," + enteredStreet_address;
+	                  sql += "," + enteredBarangay;			      
+	                  sql += "," + enteredMunicipality_city;
+	                  sql += "," + enteredProvince;			      
+	                  sql += "," + enteredRegion;			      
 	                  sql += "," + enteredSched;
 	                  sql += "," + enteredMore;            
 	                  sql += ");";
@@ -226,10 +242,14 @@
 	                  });
 	                  var newData = layer.toGeoJSON();
 	                    newData.properties.name = fname.value;
-	                    newData.properties.product = product.value;
-	                    newData.properties.price = price.value;
-	                    newData.properties.contact = contact.value;			      
-	                    newData.properties.address = address.value;
+	                    newData.properties.product = supplies.value;
+	                    newData.properties.price = contact.value;
+	                    newData.properties.contact = number.value;			      
+	                    newData.properties.address = street_address.value;
+	                    newData.properties.product = barangay.value;
+	                    newData.properties.product = municipality_city.value;
+	                    newData.properties.product = province.value;
+	                    newData.properties.product = region.value;		      
 	                    newData.properties.sched = sched.value;
 	                    newData.properties.more = more.value;             
 	                  cartoData.addData(newData);
