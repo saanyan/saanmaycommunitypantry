@@ -6,7 +6,7 @@ Saan may community pantries?
 --
 Feel free to fork this repo, with proper attrubutions. Thank you!
 
-#To everyone who will use/fork/reference this repository, I only have a few requests.
+# To everyone who will use/fork/reference this repository, I only have a few requests.
 </br>
 Please attribute SaanYanPH;
 </br>
