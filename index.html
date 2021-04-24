@@ -24,8 +24,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script> 
 	<script charset="utf-8" src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.js"></script> 
 	<script src="https://rawgit.com/mapshakers/leaflet-control-window/master/src/L.Control.Window.js"></script> 
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-	<script src='./Leaflet.LocationShare.js'></script>
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script> 	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src='./Leaflet.LocationShare.js'></script>
 <!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
 
 </head>
@@ -44,13 +46,29 @@
 					</div>
 				</div>
 			</div>
-		<div class="col-lg-4">
-		<div class="skl-logo">
-		</div>
-						<h1>Saan may COMMUNITY PANTRY? <br/> Magbigay ayon sa kakayanan. Kumuha batay sa pangangailangan.</h1>
-		      	 	 	<h2>Pins = Community Pantries! ♥️ Mula sa pagiging "Saan May Nagdedeliver", ipinalit dito ang "Saan may Community Pantry?" Kung may alam kang community pantries, maaring pakidagdag dito upang malaman din ng iba kung saan mayroong malapit na community mutual aid. <br/> <br/> PAANO GAMITIN ANG MAPA? <br/> 1️⃣ Hanapin lamang ang location ng community pantry; (mag-Zoom in sa mapa, o gamitin ang search tool sa kaliwa), o kung nasa mismong lokasyon ka, i-click mo lang ang kamay na naka-turo pababa na nasa bandang kaliwa ng mapa. 2️⃣ Kapag handa nang magdagdag ng impormasyon, i-click lang ang "Dito mayroong community pantry." 3️⃣ I-drag ang lalabas na pin sa upper-right na bahagi ng mapa papunta sa naka-zoom in na lokasyon. 4️⃣ Kapag nakatapat na ang pin sa mismong lokasyon ng Community Pantry, ilagay ang detalye sa lilitaw na form. <br/>🔘Maaari ring isubmit <a href="https://forms.gle/MiArXYsaTunhh3AK8">dito</a> ang impormasyon ng community pantry, at kami na ang magdadagdag sa mapa. Salamat! </h2>	 	
-
-					
+		<div class="col-lg-4" id="sklmp">
+			<div class="skl-logo">
+			</div>
+				<div class="row">
+					<h1>Saan may COMMUNITY PANTRY? </h1>
+				</div>
+				<div class="row">
+					<span id="marx">"Magbigay ayon sa kakayanan. Kumuha batay sa pangangailangan."</span>
+				</div>
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+  				<li class="nav-item">
+    				<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructions</a>
+  				</li>
+  				<li class="nav-item">
+    				<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Statistics</a>
+  				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+  				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+					<h2>Pins = Community Pantries! ♥️ Mula sa pagiging "Saan May Nagdedeliver", ipinalit dito ang "Saan may Community Pantry?" Kung may alam kang community pantries, maaring pakidagdag dito upang malaman din ng iba kung saan mayroong malapit na community mutual aid. <br/> <br/> PAANO GAMITIN ANG MAPA? <br/> 1️⃣ Hanapin lamang ang location ng community pantry; (mag-Zoom in sa mapa, o gamitin ang search tool sa kaliwa), o kung nasa mismong lokasyon ka, i-click mo lang ang kamay na naka-turo pababa na nasa bandang kaliwa ng mapa. 2️⃣ Kapag handa nang magdagdag ng impormasyon, i-click lang ang "Dito mayroong community pantry." 3️⃣ I-drag ang lalabas na pin sa upper-right na bahagi ng mapa papunta sa naka-zoom in na lokasyon. 4️⃣ Kapag nakatapat na ang pin sa mismong lokasyon ng Community Pantry, ilagay ang detalye sa lilitaw na form. <br/>🔘Maaari ring isubmit <a href="https://forms.gle/MiArXYsaTunhh3AK8">dito</a> ang impormasyon ng community pantry, at kami na ang magdadagdag sa mapa. Salamat! </h2>
+				</div>
+  				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+			</div>
 						<input onclick="startEdits()" type="button" value="Dito may community pantry."> <input onclick="stopEdits()" type="button" value="Salamat!"><br>	
 					
 			</div>
