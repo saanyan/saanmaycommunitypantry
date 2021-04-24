@@ -6,14 +6,9 @@ html {
 
 body {
   margin: 0px;
+  padding-right: 12px;
   font-family: 'Neucha', cursive;
   font-family: 'Roboto', sans-serif;
-}
-
-img {
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 p {
@@ -130,4 +125,14 @@ label {
   font-size: 10px;
   text-align: center;
   line-height: 10px;
+}
+
+.skl-logo{
+	background-image: url(../assets/sklph.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

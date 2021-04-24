@@ -7,44 +7,58 @@
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<title>Saan may Community Pantry?</title>
 	<link href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" rel="stylesheet">
-	<link href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" rel="stylesheet">
-	<link href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.css" rel="stylesheet">
 	<link href="https://rawgit.com/mapshakers/leaflet-control-window/master/src/L.Control.Window.css" rel="stylesheet">
 	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
-<!--	<link href='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.css' rel='stylesheet' /> -->	
-<!--	<link rel="stylesheet" href="https://github.com/anditabinas/evacuationcenters/blob/master/css/MarkerCluster.css" /> -->
-<!--	<link rel="stylesheet" href="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-easy-button.css" /> -->
-<!--	<link rel="stylesheet" href="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-tag-filter-button.css" /> -->
-
+	<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+	<script src="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.js"></script> 
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script> 
+	<script charset="utf-8" src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.js"></script> 
+	<script src="https://rawgit.com/mapshakers/leaflet-control-window/master/src/L.Control.Window.js"></script> 
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<script src='./Leaflet.LocationShare.js'></script>
+<!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
 
 </head>
 <body>
 	<body oncontextmenu="return false">
-	<div id="wrapper">
-		<div id="header">
-			<h1>Saan may COMMUNITY PANTRY? <br/> Magbigay ayon sa kakayanan. Kumuha batay sa pangangailangan.</h1>
-		        <h2>Pins = Community Pantries! ♥️ Mula sa pagiging "Saan May Nagdedeliver", ipinalit dito ang "Saan may Community Pantry?" Kung may alam kang community pantries, maaring pakidagdag dito upang malaman din ng iba kung saan mayroong malapit na community mutual aid. <br/> <br/> PAANO GAMITIN ANG MAPA? <br/> 1️⃣ Hanapin lamang ang location ng community pantry; (mag-Zoom in sa mapa, o gamitin ang search tool sa kaliwa), o kung nasa mismong lokasyon ka, i-click mo lang ang kamay na naka-turo pababa na nasa bandang kaliwa ng mapa. 2️⃣ Kapag handa nang magdagdag ng impormasyon, i-click lang ang "Dito mayroong community pantry." 3️⃣ I-drag ang lalabas na pin sa upper-right na bahagi ng mapa papunta sa naka-zoom in na lokasyon. 4️⃣ Kapag nakatapat na ang pin sa mismong lokasyon ng Community Pantry, ilagay ang detalye sa lilitaw na form. <br/>🔘Maaari ring isubmit <a href="https://forms.gle/MiArXYsaTunhh3AK8">dito</a> ang impormasyon ng community pantry, at kami na ang magdadagdag sa mapa. Salamat! </h2>	 	
+	<div class="col-lg-12">
+		<div class="row">
+			<div id="wrapper">
+			</div>
+			<div class="col-lg-8">
+				<div id="map"><a href="http://mapbox.com/about/maps" class='mapbox-logo' target="_blank">Mapbox</a>
+					<div class="mapbox-attribution-container">
+						<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>
+						<a href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
+						<a href="https://www.mapbox.com/map-feedback/" target="_blank"><strong>Improve this map</strong></a>
+					</div>
+				</div>
+			</div>
+		<div class="col-lg-4">
+		<div class="skl-logo">
 		</div>
-		<div id="controls">
-			<input onclick="startEdits()" type="button" value="Dito may community pantry."> <input onclick="stopEdits()" type="button" value="Salamat!"><br>	
-		</div>
-		
-		<div id="map"><a href="http://mapbox.com/about/maps" class='mapbox-logo' target="_blank">Mapbox</a>
-			<div class="mapbox-attribution-container">
-				<a href="https://www.mapbox.com/about/maps/">© Mapbox | </a>
-				<a href="http://www.openstreetmap.org/copyright">© OpenStreetMap | </a>
-				<a href="https://www.mapbox.com/map-feedback/" target="_blank"><strong>Improve this map</strong></a>
+						<h1>Saan may COMMUNITY PANTRY? <br/> Magbigay ayon sa kakayanan. Kumuha batay sa pangangailangan.</h1>
+		      	 	 	<h2>Pins = Community Pantries! ♥️ Mula sa pagiging "Saan May Nagdedeliver", ipinalit dito ang "Saan may Community Pantry?" Kung may alam kang community pantries, maaring pakidagdag dito upang malaman din ng iba kung saan mayroong malapit na community mutual aid. <br/> <br/> PAANO GAMITIN ANG MAPA? <br/> 1️⃣ Hanapin lamang ang location ng community pantry; (mag-Zoom in sa mapa, o gamitin ang search tool sa kaliwa), o kung nasa mismong lokasyon ka, i-click mo lang ang kamay na naka-turo pababa na nasa bandang kaliwa ng mapa. 2️⃣ Kapag handa nang magdagdag ng impormasyon, i-click lang ang "Dito mayroong community pantry." 3️⃣ I-drag ang lalabas na pin sa upper-right na bahagi ng mapa papunta sa naka-zoom in na lokasyon. 4️⃣ Kapag nakatapat na ang pin sa mismong lokasyon ng Community Pantry, ilagay ang detalye sa lilitaw na form. <br/>🔘Maaari ring isubmit <a href="https://forms.gle/MiArXYsaTunhh3AK8">dito</a> ang impormasyon ng community pantry, at kami na ang magdadagdag sa mapa. Salamat! </h2>	 	
+
+					
+						<input onclick="startEdits()" type="button" value="Dito may community pantry."> <input onclick="stopEdits()" type="button" value="Salamat!"><br>	
+					
 			</div>
 		</div>
-		
-		<div id="credits">
+	</div>
+			<div id="credits">
 			<p>A Project by Ministry of Mapping, Mental Health AWHEREness PH, MapBeks, UP Geography Department, and the PH Open-mapping Community; and in partnership with Rappler's #MovePH. Please follow our Facebook Page <a href="https://www.facebook.com/saanyanph">here.</a></p>
 		</div>
-	</div>
 	<div id="dialog" title="Dito may community pantry:">
 		<form>
 			<fieldset style="border: none;">
@@ -75,47 +89,36 @@
 			</fieldset>
 		</form>
 	</div>
-	<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script> 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-	<script src="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.js"></script> 
-	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
-	<script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script> 
-	<script charset="utf-8" src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.js"></script> 
-	<script src="https://rawgit.com/mapshakers/leaflet-control-window/master/src/L.Control.Window.js"></script> 
-	<script src="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet.markercluster.js"></script>
-	<script src="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-easy-button.js"></script>
-	<script src="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-tag-filter-button.js"></script>
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-	<script src="https://gme210soundmap.github.io/Manilaud/Leaflet.LocationShare.js"></script>		
-<!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
-	<script type="text/javascript" src="dist/leaflet-control-credits.js"></script>
-	
 	<script>
-	          var config = { //TODO: Change to your username, insert function on Carto, and Carto tablename
-	              cartoUsername: "anditabinas",
-	              cartoInsertFunction : "insert_crowd_mapping_data",
-	              cartoTablename: "saanmaynagdedeliver",
-	              mapcenter: [13.325,121.300],
-	              drawOptions: {
-	                  draw: {
-	                      polygon: false,
-	                      polyline: false,
-	                      rectangle: false,
-	                      circle: false,
-	                                  circlemarker: false,
-	                      marker: true                                    
-	                  },
-	                  edit: false,
-	                  remove: false
-	              }
-	          };         
-	          
+    var config = { //TODO: Change to your username, insert function on Carto, and Carto tablename
+            cartoUsername: "anditabinas",
+            cartoInsertFunction : "insert_crowd_mapping_data",
+            cartoTablename: "saanmaynagdedeliver",
+            mapcenter: [13.325,121.300],
+            drawOptions: {
+                draw: {
+                    polygon: false,
+                    polyline: false,
+                    rectangle: false,
+                    circle: false,
+                                circlemarker: false,
+                    marker: true                                    
+                },
+                edit: false,
+                remove: false,
+                position: "topleft"
+            },
+            zoomControl: true
+        };   
 	          var cartoData = null; //These adds data from Carto using the SQL API, declares variables, and writes the SQL selection query
 	          var sqlQuery = "SELECT the_geom, name, supplies, contact, number, street_address, barangay, municipality_city, province, region, sched, more FROM " + config.cartoTablename;
-	          var map = L.map('map', { center: config.mapcenter, zoom: 6});   // Creates the Leaflet map object
-	          map.addControl(new L.Control.Fullscreen());
-		
+	          var map = L.map('map', { center: config.mapcenter, zoom: 6, zoomControl: config.zoomControl });   // Creates the Leaflet map object
+	          var osmGeocoder = new L.Control.OSMGeocoder({position: 'topleft'}); //Adds Search toolbar; OSMGeocoder       
+	          map.addControl(osmGeocoder);
+	          
+	          map.addControl(new L.Control.Fullscreen({
+	        	  position: 'topleft'
+	          }));
 				  
 	          var Mapbox = L.tileLayer('https://api.mapbox.com/styles/v1/anditabinas/ck03r85tj4p951cl5s673xu47/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW5kaXRhYmluYXMiLCJhIjoiY2plejI3aHp3MDV3MjMzcW9ydXl2bHNmZiJ9.9h6j7BbkM-PUtK0zaZ1iUg', {
 	              attribution: '&copy; <a href="mapbox://styles/anditabinas/ck03r85tj4p951cl5s673xu47">Mapbox<\/a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap<\/a> contributors; <strong><a href="https://www.mapbox.com/map-feedback/">Improve this map</strong></a>',
@@ -123,16 +126,12 @@
 	              maxZoom: 20 //Adds the tilelayer basemap; I used my mapbox style here.
 	          }); 
 	          Mapbox.addTo(map);
-	          
-	          var osmGeocoder = new L.Control.OSMGeocoder({position: 'topleft'}); //Adds Search toolbar; OSMGeocoder       
-	          map.addControl(osmGeocoder);
-	          
 	          var lc = L.control.locate({  //Adds Locate Control; to locate the user's location on the map
 	                  position: 'topleft',
 	              icon: 'fa fa-hand-o-down'
 	          });     
 	          map.addControl(lc);
-			 
+          	  
 	          var getData = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
 	          function getGeoJSON() {
 	              $.getJSON(getData, function (data) {
@@ -262,10 +261,6 @@
 	              map.removeLayer(drawnItems);
 	              drawnItems = new L.FeatureGroup();
 	          }
-	          
-	          
-	          
-	          
 	</script>
 </body>
 </html>
