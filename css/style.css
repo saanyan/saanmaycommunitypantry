@@ -148,6 +148,52 @@ label {
     margin-bottom: 20px;
 }
 
+#logo_MHAW{
+	background-image: url(../assets/mwhereness.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    margin: 20px;
+}
+
+#logo_MPBEKS{
+	background-image: url(../assets/mapbkes.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    margin: 20px;
+}
+
+#logo_MOM{
+	background-image: url(../assets/mom.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    margin: 20px;
+}
+
+#logo_UPGEOGSOC{
+	background-image: url(../assets/UPGeogSoc.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    width: 60px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+#logo_DEPT{
+	background-image: url(../assets/176875536_896860927540316_1876896163247627181_n.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    margin: 20px;
+}
+
 #sklmp {
 	margin-right: -6px;
 	padding-right: 24px;
@@ -171,6 +217,12 @@ label {
     border-width: 2px;
 }
 
+#about-tab{
+	border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    border-width: 2px;
+}
+
 #sunbaenim{
 	margin-bottom: 20px;
 }
@@ -188,6 +240,10 @@ a:hover {
 }
 
 #home{
+	padding-top: 12px;
+}
+
+#about{
 	padding-top: 12px;
 }
 
