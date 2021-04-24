@@ -5,6 +5,11 @@
   src: url(../font/Gotham_Medium.otf);
 }
 
+@font-face {
+  font-family: gotham_regular;
+  src: url(../font/GothamLight_Regular.otf);
+}
+
 html {
   height: 100%;
 }
@@ -145,6 +150,7 @@ label {
 
 #sklmp {
 	margin-right: -6px;
+	padding-right: 24px;
 }
 
 #marx{
@@ -167,4 +173,29 @@ label {
 
 #sunbaenim{
 	margin-bottom: 20px;
+}
+
+a {
+	color: #16a8a3;
+}
+
+a:hover {
+	color: #16a8a3;
+}
+
+.nav-tabs .nav-link.active {
+    color: #495057;
+}
+
+#home{
+	padding-top: 12px;
+}
+
+.header-marxsunbaenim{
+	font-size: 18px;
+}
+
+.header-marxsunbaenim-cont{
+	font-size: 14px;
+    font-family: 'gotham_regular';
 }
