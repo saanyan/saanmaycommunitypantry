@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Neucha|Roboto&display=swap');
 
+@font-face {
+  font-family: gotham_medium;
+  src: url(../font/Gotham_Medium.otf);
+}
+
 html {
   height: 100%;
 }
 
 body {
   margin: 0px;
-  padding-right: 12px;
+  padding-right: 24px;
   font-family: 'Neucha', cursive;
-  font-family: 'Roboto', sans-serif;
+  font-family: gotham_medium;
 }
 
 p {
@@ -23,8 +28,9 @@ h1 {
   margin-left: 10px;
   color: #16a8a3;
   text-align: center;     
-  font-size: 25px;
   font-weight: lighter;
+  font-family: 'gotham_medium';
+  font-size: 28px;
 }
 
 h2 {
@@ -142,5 +148,23 @@ label {
 }
 
 #marx{
-	font-family: sans-serif;
+    font-family: gotham_medium;
+    text-align: center;
+    line-height: 20px;
 } 
+
+#home-tab{
+	border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    border-width: 2px;
+}
+
+#profile-tab{
+	border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    border-width: 2px;
+}
+
+#sunbaenim{
+	margin-bottom: 20px;
+}
