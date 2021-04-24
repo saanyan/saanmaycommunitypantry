@@ -243,6 +243,10 @@ a:hover {
 	padding-top: 12px;
 }
 
+#profile{
+	padding-top: 12px;
+}
+
 #about{
 	padding-top: 12px;
 }
@@ -254,4 +258,13 @@ a:hover {
 .header-marxsunbaenim-cont{
 	font-size: 14px;
     font-family: 'gotham_regular';
+}
+
+#ditomaypantry{
+    margin: 20px;
+}
+
+#salamatnalangsalahat{
+
+    margin: 20px;
 }

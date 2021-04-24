@@ -108,11 +108,12 @@
 						 ang impormasyon ng community pantry, at kami na ang magdadagdag sa mapa. Salamat!
 					 	</span>
 					 </div>
-					 <div class="row">
-					 	<input id="ditomaypantry" class="btn btn-info" onclick="startEdits()" type="button" value="Dito may community pantry."> <input class="btn btn-light" onclick="stopEdits()" type="button" value="Salamat!">
-					 </div>
+					 	<input id="ditomaypantry" class="btn btn-info" onclick="startEdits()" type="button" value="Dito may community pantry."> <input id="salamatnalangsalahat" class="btn btn-light" onclick="stopEdits()" type="button" value="Salamat!">
 				</div>
-  				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  					<span id="totalPantries" class="header-marxsunbaenim">
+  					</span>
+  				</div>
   				<div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
 					<span class="header-marxsunbaenim-cont">
 					Inspired by Ana Patricia Non.<br> A Project by Ministry of Mapping, Mental Health AWHEREness PH, MapBeks, UP Geography Department, Geographic Society of the University of the Philippines, and the PH Open-mapping Community; and in partnership with Rappler's #MovePH. Please follow our Facebook Page <a href="https://www.facebook.com/saanyanph">here.</a>
@@ -190,6 +191,7 @@
         };   
 	          var cartoData = null; //These adds data from Carto using the SQL API, declares variables, and writes the SQL selection query
 	          var sqlQuery = "SELECT the_geom, name, supplies, contact, number, street_address, barangay, municipality_city, province, region, sched, more FROM " + config.cartoTablename;
+	          var totalPantries = "SELECT COUNT(cartodb_id) FROM " + config.cartoTablename;
 	          var map = L.map('map', { center: config.mapcenter, zoom: 6, zoomControl: config.zoomControl });   // Creates the Leaflet map object
 	          var osmGeocoder = new L.Control.OSMGeocoder({position: 'topleft'}); //Adds Search toolbar; OSMGeocoder       
 	          map.addControl(osmGeocoder);
@@ -220,7 +222,17 @@
 	                  }).addTo(map);
 	              });
 	          }
+	          
+	          var getTotalPantries = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
+	          function getGeoJSONTotalPantries() {
+	              $.getJSON(getData, function (data) {
+	                  console.log(data.features.length);
+	                  document.getElementById('totalPantries').innerHTML = "Total Community Pantries: " + data.features.length;
+	              });
+	          }
+	          
 	          getGeoJSON();
+	          getGeoJSONTotalPantries();
 	          var drawnItems = new L.FeatureGroup();
 	          var drawControl = new L.Control.Draw(config.drawOptions);
 	          var controlOnMap = false;
