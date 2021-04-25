@@ -155,6 +155,7 @@ label {
     height: 80px;
     width: 80px;
     margin: 20px;
+    cursor: pointer;
 }
 
 #logo_MPBEKS{
@@ -164,6 +165,7 @@ label {
     height: 80px;
     width: 80px;
     margin: 20px;
+    cursor: pointer;
 }
 
 #logo_MOM{
@@ -173,6 +175,7 @@ label {
     height: 80px;
     width: 80px;
     margin: 20px;
+    cursor: pointer;
 }
 
 #logo_UPGEOGSOC{
@@ -183,6 +186,7 @@ label {
     width: 60px;
     margin-top: 30px;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 #logo_DEPT{
@@ -192,6 +196,7 @@ label {
     height: 80px;
     width: 80px;
     margin: 20px;
+    cursor: pointer;
 }
 
 #sklmp {
