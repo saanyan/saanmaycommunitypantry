@@ -215,46 +215,8 @@
 	          });     
 	          map.addControl(lc);
           	  
-/* 	          var getData = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
-	          function getGeoJSON() {
-	              $.getJSON(getData, function (data) {
-	                  cartoData = L.geoJson(data, {
-	                      onEachFeature: function (feature, layer) {
-	                          layer.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.supplies + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.contact + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.number + '<br>' + '<b>Street Address: <\/b>' + feature.properties.street_address + '<br>' + '<b>Barangay: <\/b>' + feature.properties.barangay + '<br>' + '<b>Municipality/City: <\/b>' + feature.properties.municipality_city + '<br>' + '<b>Province: <\/b>' + feature.properties.province + '<br>' + '<b>Region: <\/b>' + feature.properties.region + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
-	                      }           
-	                  }).addTo(map);
-	              });
-	          } */
-	          var myIcon = L.icon({
-	        	  iconUrl: 'https://unpkg.com/leaflet@0.7.7/dist/images/marker-icon-2x.png',
-	        	  iconRetinaUrl: 'https://unpkg.com/leaflet@0.7.7/dist/images/marker-icon-2x.png',
-	        	  iconSize: [29, 24],
-	        	  iconAnchor: [9, 21],
-	        	  popupAnchor: [0, -14]
-	        	});
-
-	          var getTotalPantries = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
-	          /* var gj = $.getJSON(getTotalPantries, function (data) {
-	                  document.getElementById('totalPantries').innerHTML = "Total Community Pantries: " + data.features.length;
-	              });
-	              
-	          gj.then(
-	        	        function(response) {
-	        	          pantriesData = response;
-	  	                  for (var i = 0; i < pantriesData.features.length; ++i) {
-	  	    	            var popup = pantriesData.features[i].properties.name;
-
-	  	    	            var m = L.marker( [pantriesData.features[i].geometry.coordinates[0], pantriesData.features[i].geometry.coordinates[1]], {icon: myIcon} )
-	  	    	                            .bindPopup( popup );
-
-	  	    	            markerClusters.addLayer( m );
-	  	    	          }
-	  	    	          map.addLayer( markerClusters );
-	        	        },
-	        	        function(error) {
-	        	            console.log('promise error handler', error);
-	        }); */
-	          
+	        var getTotalPantries = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
+        
 	        function getGeoJSONTotalPantries(){  $.getJSON(getTotalPantries, function(data) {
 	        	  var clusters = L.markerClusterGroup();
 	        	  var incidents = L.geoJson(data, {
@@ -270,20 +232,8 @@
 	        	  map.addLayer(clusters);
 	        	  document.getElementById('totalPantries').innerHTML = "Total Community Pantries: " + data.features.length;
 	        	});
-	        }
-	          function clusterPoints(){
-	        	  var markers = L.markerClusterGroup();
-	  	          for (var i = 0; i < pantriesData.features.length; i++) {
-	  	  				var a = pantriesData.features[i].geometry.coordinates;
-	  	  				var title = a[0];
-	  	  				var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
-	  	  				marker.bindPopup(title);
-	  	  				markers.addLayer(marker);
-	  	  		  } 
-	  	          map.addLayer(markers);
 	          }
-	          
-	          /* getGeoJSON(); */
+
 	          getGeoJSONTotalPantries();
 	          var drawnItems = new L.FeatureGroup();
 	          var drawControl = new L.Control.Draw(config.drawOptions);
