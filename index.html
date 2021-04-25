@@ -7,6 +7,8 @@
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<title>Saan may Community Pantry?</title>
 	<link rel="icon" href="assets/sklph.png">
+	
+	<!-- CSS -->
 	<link href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" rel="stylesheet">
 	<link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
@@ -19,6 +21,8 @@
 	<link href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.css" rel="stylesheet">
 	<link href="https://rawgit.com/mapshakers/leaflet-control-window/master/src/L.Control.Window.css" rel="stylesheet">
 	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+	
+	<!-- Frameworks -->
 	<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
@@ -32,6 +36,9 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src='./js/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster.js'></script>
 	<script src='./Leaflet.LocationShare.js'></script>
+	
+	<!-- JS -->
+	<script src='./js/config.js'></script>
 <!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
 
 </head>
@@ -120,6 +127,10 @@
   				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
   					<span id="totalPantries" class="header-marxsunbaenim">
   					</span>
+  					<br>
+  					<span class="header-marxsunbaenim-cont">
+  					Additional data and insights can be found <a href="http://bit.ly/cpmapdashboard">here.</a>
+  					</span>
   				</div>
   				<div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
 					<span class="header-marxsunbaenim-cont">
@@ -141,7 +152,7 @@
 						<span class="header-marxsunbaenim-cont">
 						Saan Yan PH Volunteers:
 						<br>
-						Andi, Mikko, David, Ony, Carlo, JR, Kimberly, Joseph, Christie, Raymund, Reynier, Ozzy, Roel, Allen, Bea, Cheska, & James.
+						Andi, Mikko, David, Ony, Carlo, JR, Kimberly, Joseph, Christie, Raymund, Reynier, Ozzy, Roel, Ian, Allen, Bea, Cheska, & James.
 						</span>
 					</div>
 				</div>
@@ -183,26 +194,6 @@
 		</form>
 	</div>
 	<script>
-    var config = { //TODO: Change to your username, insert function on Carto, and Carto tablename
-            cartoUsername: "anditabinas",
-            cartoInsertFunction : "insert_crowd_mapping_data",
-            cartoTablename: "saanmaynagdedeliver",
-            mapcenter: [13.325,121.300],
-            drawOptions: {
-                draw: {
-                    polygon: false,
-                    polyline: false,
-                    rectangle: false,
-                    circle: false,
-                                circlemarker: false,
-                    marker: true                                    
-                },
-                edit: false,
-                remove: false,
-                position: "topleft"
-            },
-            zoomControl: true
-        };   
 	          var cartoData = null; //These adds data from Carto using the SQL API, declares variables, and writes the SQL selection query
 	          var pantriesData = {};
 	          var sqlQuery = "SELECT the_geom, name, supplies, contact, number, street_address, barangay, municipality_city, province, region, sched, more FROM " + config.cartoTablename;
@@ -364,7 +355,7 @@
 	                    newData.properties.product = region.value;		      
 	                    newData.properties.sched = sched.value;
 	                    newData.properties.more = more.value;             
-	                  cartoData.addData(newData);
+	                  cartoData.addData(newData);             
 	              });
 	              
 	              dialog.dialog("close");
@@ -374,6 +365,7 @@
 	              map.removeLayer(drawnItems);
 	              drawnItems = new L.FeatureGroup();
 	          }
+
 	          document.getElementById('logo_MHAW').style.cursor='hand';
 	          document.getElementById('logo_MPBEKS').style.cursor='hand'; 
 	          document.getElementById('logo_MOM').style.cursor='hand'; 
