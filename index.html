@@ -256,6 +256,7 @@
 	        }); */
 	          
 	        function getGeoJSONTotalPantries(){  $.getJSON(getTotalPantries, function(data) {
+	        	  document.getElementById('totalPantries').innerHTML = "Total Community Pantries: " + data.features.length;
 	        	  var clusters = L.markerClusterGroup();
 	        	  var incidents = L.geoJson(data, {
 	        	    pointToLayer: function(feature, latlng) {
