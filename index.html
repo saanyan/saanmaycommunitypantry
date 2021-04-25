@@ -10,6 +10,8 @@
 	<link href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" rel="stylesheet">
 	<link href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="js/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" rel="stylesheet" type="text/css">
+	<link href="js/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" rel="stylesheet" type="text/css">
 	<link href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.67.0/dist/L.Control.Locate.min.css" rel="stylesheet">
@@ -87,6 +89,7 @@
 	<script src="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-easy-button.js"></script>
 	<script src="https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-tag-filter-button.js"></script>
 	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<script src='./js/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster.js'></script>	
 	<script src="https://gme210soundmap.github.io/Manilaud/Leaflet.LocationShare.js"></script>		
 <!--	<script src='https://github.com/anditabinas/evacuationcenters/blob/master/leaflet-routing-machine.js'></script> -->	
 	<script type="text/javascript" src="dist/leaflet-control-credits.js"></script>
@@ -132,18 +135,27 @@
 	              icon: 'fa fa-hand-o-down'
 	          });     
 	          map.addControl(lc);
-			 
-	          var getData = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
-	          function getGeoJSON() {
-	              $.getJSON(getData, function (data) {
-	                  cartoData = L.geoJson(data, {
-	                      onEachFeature: function (feature, layer) {
-	                          layer.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.supplies + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.contact + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.number + '<br>' + '<b>Street Address: <\/b>' + feature.properties.street_address + '<br>' + '<b>Barangay: <\/b>' + feature.properties.barangay + '<br>' + '<b>Municipality/City: <\/b>' + feature.properties.municipality_city + '<br>' + '<b>Province: <\/b>' + feature.properties.province + '<br>' + '<b>Region: <\/b>' + feature.properties.region + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
-	                      }           
-	                  }).addTo(map);
-	              });
+		
+	        var getTotalPantries = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
+        
+	        function getGeoJSONTotalPantries(){  $.getJSON(getTotalPantries, function(data) {
+	        	  var clusters = L.markerClusterGroup();
+	        	  var incidents = L.geoJson(data, {
+	        	    pointToLayer: function(feature, latlng) {
+	        	      var marker = L.marker(latlng);
+	        	      marker.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.supplies + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.contact + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.number + '<br>' + '<b>Street Address: <\/b>' + feature.properties.street_address + '<br>' + '<b>Barangay: <\/b>' + feature.properties.barangay + '<br>' + '<b>Municipality/City: <\/b>' + feature.properties.municipality_city + '<br>' + '<b>Province: <\/b>' + feature.properties.province + '<br>' + '<b>Region: <\/b>' + feature.properties.region + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
+	        	      return marker;
+	        	    },
+	        	    onEachFeature: function (feature, layer) {
+	        	      layer.addTo(clusters);
+	        	    }
+	        	  });
+	        	  map.addLayer(clusters);
+	        	  document.getElementById('totalPantries').innerHTML = "Total Community Pantries: " + data.features.length;
+	        	});
 	          }
-	          getGeoJSON();
+
+	          getGeoJSONTotalPantries();
 	          var drawnItems = new L.FeatureGroup();
 	          var drawControl = new L.Control.Draw(config.drawOptions);
 	          var controlOnMap = false;
@@ -154,6 +166,17 @@
 	              }
 	              map.addControl(drawControl);
 	              controlOnMap = true;
+	          }
+	          function clusterPoints(){
+	        	  var markers = L.markerClusterGroup();
+	  	          for (var i = 0; i < pantriesData.features.length; i++) {
+	  	  				var a = pantriesData.features[i].geometry.coordinates;
+	  	  				var title = a[0];
+	  	  				var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
+	  	  				marker.bindPopup(title);
+	  	  				markers.addLayer(marker);
+	  	  		  } 
+	  	          map.addLayer(markers);
 	          }
 	          function stopEdits() {
 	              map.removeControl(drawControl);
