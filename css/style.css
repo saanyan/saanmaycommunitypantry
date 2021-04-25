@@ -16,9 +16,15 @@ html {
 
 body {
   margin: 0px;
-  padding-right: 24px;
+  padding-right: 0px;
   font-family: 'Neucha', cursive;
   font-family: gotham_medium;
+}
+
+@media (min-width: 992px) {
+	body {
+		padding-right: 24px;
+	}
 }
 
 p {

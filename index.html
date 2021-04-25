@@ -41,6 +41,9 @@
 		<div class="row">
 			<div id="wrapper">
 			</div>
+			<div class="col-sm-12 col-xs-12 d-sm-block d-md-none d-lg-none d-xl-none">
+				<input id="ditomaypantry" class="btn btn-info" onclick="startEdits()" type="button" value="Dito may community pantry."> <input id="salamatnalangsalahat" class="btn btn-light" onclick="stopEdits()" type="button" value="Salamat!">
+			</div>
 			<div class="col-lg-7 col-sm-12">
 				<div id="map"><a href="http://mapbox.com/about/maps" class='mapbox-logo' target="_blank">Mapbox</a>
 					<div class="mapbox-attribution-container">
@@ -50,7 +53,7 @@
 					</div>
 				</div>
 			</div>
-		<div class="col-lg-5 col-sm-12" id="sklmp">
+		<div class="col-lg-5 col-sm-12 d-none d-md-block" id="sklmp">
 			<div class="skl-logo">
 			</div>
 				<div class="row">
@@ -120,7 +123,7 @@
   				</div>
   				<div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
 					<span class="header-marxsunbaenim-cont">
-					Inspired by Ana Patricia Non.<br> A Project by Ministry of Mapping, Mental Health AWHEREness PH, MapBeks, UP Geography Department, Geographic Society of the University of the Philippines, and the PH Open-mapping Community; and in partnership with Rappler's #MovePH. Please follow our Facebook Page <a href="https://www.facebook.com/saanyanph">here.</a>
+					Community Pantries shown here in this map are inspired by. Ms. Ana Patricia Non’s Maginhawa Community Pantry.<br><br> A Project by Ministry of Mapping, Mental Health AWHEREness PH, MapBeks, UP Geography Department, Geographic Society of the University of the Philippines, and the PH Open-mapping Community; and in partnership with Rappler's #MovePH. Please follow our Facebook Page <a href="https://www.facebook.com/saanyanph">here.</a>
 					</span>
 					<div class="row">
 					<div id="logo_MOM" onclick="window.open('https://www.facebook.com/mappingministry', '_blank');">
@@ -217,10 +220,10 @@
 	          map.addControl(lc);
           	  
 	        var getTotalPantries = "https://" + config.cartoUsername + ".carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery; //Fetches data input on the carto database
-        
+
 	        function getGeoJSONTotalPantries(){  $.getJSON(getTotalPantries, function(data) {
 	        	  var clusters = L.markerClusterGroup();
-	        	  var incidents = L.geoJson(data, {
+	        	  cartoData = L.geoJson(data, {
 	        	    pointToLayer: function(feature, latlng) {
 	        	      var marker = L.marker(latlng);
 	        	      marker.bindPopup('<b>Community Pantry: <\/b>' + feature.properties.name + '<br>' + '<b>Laman/Mailalaman sa Pantry: <\/b>' + feature.properties.supplies + '<br>' + '<b>Contact Person: <\/b>' + feature.properties.contact + '<br>' + '<b>Contact Number: <\/b>' + feature.properties.number + '<br>' + '<b>Street Address: <\/b>' + feature.properties.street_address + '<br>' + '<b>Barangay: <\/b>' + feature.properties.barangay + '<br>' + '<b>Municipality/City: <\/b>' + feature.properties.municipality_city + '<br>' + '<b>Province: <\/b>' + feature.properties.province + '<br>' + '<b>Region: <\/b>' + feature.properties.region + '<br>' + '<b>Schedule: <\/b>' + feature.properties.sched + '<br>' + '<b>More information: <\/b>' + feature.properties.more + '');
@@ -364,6 +367,11 @@
 	              map.removeLayer(drawnItems);
 	              drawnItems = new L.FeatureGroup();
 	          }
+	          document.getElementById('logo_MHAW').style.cursor='hand';
+	          document.getElementById('logo_MPBEKS').style.cursor='hand'; 
+	          document.getElementById('logo_MOM').style.cursor='hand'; 
+	          document.getElementById('logo_UPGEOGSOC').style.cursor='hand'; 
+	          document.getElementById('logo_DEPT').style.cursor='hand'; 
 	</script>
 </body>
 </html>
